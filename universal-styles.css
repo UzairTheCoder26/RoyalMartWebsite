@@ -1,0 +1,25 @@
+/*
+font-family: 'Kanit', sans-serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Roboto Slab', serif;
+*/
+
+.box-shadow {
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5) !important;
+}
+a.current-page {
+  letter-spacing: 0.05rem !important;
+  font-weight: 600 !important;
+}
+
+@keyframes scaleUp {
+  0% {
+    opacity: 0;
+    transform: translateY(250px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

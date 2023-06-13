@@ -1,0 +1,275 @@
+/*
+font-family: 'Kanit', sans-serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Roboto Slab', serif;
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+}
+main {
+  overflow: hidden;
+}
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+/* .preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background: #37517e;
+}
+
+.preloader:before {
+  content: "";
+  position: fixed;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  border: 6px solid #37517e;
+  border-top-color: #fff;
+  border-bottom-color: #fff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: animate-preloader 1s linear infinite;
+}
+
+@keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+} */
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 5rem;
+  padding: 0.5rem 7rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  transition: background-color 0.5s ease, box-shadow 0.5s ease, padding 0.5s;
+  padding: 0.375rem 7rem;
+}
+header.scrolled {
+  background-color: white;
+}
+/* logo */
+
+header .desktop-logo {
+  height: 4rem;
+  margin-right: 2rem;
+}
+/*--------------------------------------------------------------
+# NavBar
+--------------------------------------------------------------*/
+
+ul.nav-links-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: max-content;
+  transition: background-color 0.7s ease, box-shadow 0.7s ease;
+  transition: width 0.5s ease;
+  list-style: none;
+  background-color: transparent !important;
+}
+/* NavBar Items */
+
+ul.nav-links-container li a,
+ul.nav-links-container .dropdown-btn {
+  font-family: "Montserrat";
+  font-size: 1rem;
+  letter-spacing: -0.02rem;
+  color: rgb(255, 255, 255);
+  position: relative;
+  font-weight: 400;
+  padding: 0 1.25rem;
+}
+
+/* NavBar Items Below Line */
+
+ul.nav-links-container li a::after,
+ul.nav-links-container .dropdown-btn::after {
+  content: "";
+  width: 0;
+  height: 3px;
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgb(255, 0, 0);
+  transition: width 0.3s;
+  display: inline-block;
+}
+ul.nav-links-container li a:hover::after,
+ul.nav-links-container .dropdown-btn:hover::after {
+  width: 45%;
+}
+/*--------------------------------------------------------------
+# DropDown
+--------------------------------------------------------------*/
+
+.dropdown {
+  position: relative;
+}
+.dropdown-btn {
+  font-family: "Montserrat";
+  font-size: 1rem;
+  letter-spacing: -0.02rem;
+  color: rgb(255, 255, 255);
+  border: transparent;
+  background-color: transparent;
+  font-weight: 500;
+}
+.dropdown.active > .dropdown-btn {
+  color: black;
+}
+.dropdown-content {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  background-color: #ffd9d9;
+  border-radius: 0.5rem;
+  position: absolute;
+  top: calc(100% + 1rem);
+  left: -1.5rem;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+  opacity: 0;
+  transform: translateY(-1rem);
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+  pointer-events: none;
+}
+.dropdown.active > .dropdown-btn + .dropdown-content {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdown-content-buttons {
+  color: black !important;
+}
+
+/* Header Cta Button */
+.hdr-cta-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-family: "montserrat", sans-serif;
+  border: 2px Solid rgb(255, 45, 45);
+  background-color: transparent !important;
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  margin-left: 2rem;
+  transform: scale(normal);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.hdr-cta-btn:hover {
+  background-color: rgb(255, 45, 45) !important;
+  transform: scale(1.1);
+}
+/* Side Bar Styles */
+.side-bar {
+  background-color: rgb(50, 42, 39);
+  position: absolute;
+  top: 5rem;
+  right: 0;
+  width: 90%;
+  margin: 0 5% 0 5%;
+  height: max-content;
+  opacity: 0.95;
+  border-radius: 1rem;
+  padding: 2rem 0;
+  display: none;
+}
+.side-bar-opened {
+  display: block; /* Show the sidebar when opened */
+}
+
+.side-bar-links-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  text-align: center;
+  align-items: center;
+  height: 10rem;
+}
+.side-bar-links-container li a {
+  font-family: "Montserrat";
+  font-size: 1rem;
+  letter-spacing: -0.02rem;
+  color: rgb(255, 255, 255);
+  font-weight: 400;
+}
+.side-bar-links-container li a:active {
+  letter-spacing: 0.05rem;
+}
+.sidebar-cta-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-family: "montserrat", sans-serif;
+  border: 2px Solid rgb(255, 45, 45);
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  display: block;
+  width: max-content;
+  margin: 1rem auto 0 auto;
+  transform: scale(normal);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar-cta-btn:active {
+  background-color: rgb(255, 45, 45) !important;
+  transform: scale(normal) !important;
+}
+
+/* HamBurger Styles */
+.ham-burger {
+  position: relative;
+  width: 40px;
+  height: 30px;
+  background: transparent;
+  cursor: pointer;
+  color: white;
+  display: none;
+  transition: color 0.3s;
+}
+
+/* Ham Responsive Styles / */
+@media (max-width: 991px) {
+  header {
+    padding: 0.375rem 1.5rem;
+  }
+  .ham-burger {
+    display: block;
+    margin-top: -0.5rem;
+  }
+  nav ul li.nav-links,
+  button {
+    display: none;
+  }
+}
+button.hdr-cta-btn {
+  margin-left: 1rem;
+}
